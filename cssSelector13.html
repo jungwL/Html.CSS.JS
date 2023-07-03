@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS(Cascading Style Sheets)</title>
+    <style>
+      p::first-letter{
+        font-size: 2em;
+        color: red;
+      }
+      p::first-line {
+        background-color: yellow;
+      }
+      p::selection{
+        background-color: green;
+        color: blue;
+      }
+      h3::before{
+        content: "겨울";
+        color: red;
+      }
+      h3::after{
+        content: "코로나도 함께";
+        color: blueviolet;
+      }
+    </style>
+</head>
+<body>
+   <h2>오늘의 뉴스</h2>
+   <p>
+    김민재(25, 나폴리)가 내년 여름에 어떤 결정을 내리게 될까. 이탈리아 현지 전문가는 김민재가 나폴리 잔류를 원하며, 바이아웃 조항과 주급 인상 등으로 재계약을 넌지시 내다봤다.
+   </p>
+   <h3>감기조심하세요.</h3>
+
+</body>
+</html>

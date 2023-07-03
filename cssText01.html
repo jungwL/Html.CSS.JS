@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS(Cascading Style Sheets)</title>
+    <style>
+        /*웹폰트 -> 브라우저를 사용하는 동안 임시로 폰트를 다운로드하여 클라이언트에 폰트가 없어도 보여줌*/
+        @font-face {
+            font-family: "trana";
+            src: url("fonts/trana.eot"),
+                 url("fonts/trana.woff")format("woff"),
+                 url("fonts/trana.ttf")format("truetype");
+        }
+        h1 {
+            font-family: "trana";
+        }
+    </style>
+</head>
+<body>
+    <h1>CORONA</h1>
+</body>
+</html>

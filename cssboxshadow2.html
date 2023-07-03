@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그라데이션</title>
+    <style>
+      p {
+        width: 300px;
+        padding: 20px;
+        background-color: cadetblue;
+        display: inline-block;
+        margin: 20px 10px;
+        border-radius: 55px 10px / 10px 55px;
+      }
+      p:nth-of-type(1) {
+        box-shadow: 10px 15px 10px;
+      }
+      p:nth-of-type(2){
+        box-shadow: 10px 15px 10px rgba(0, 0, 50, 0.4);
+      }
+      p:nth-of-type(3){
+        box-shadow: 10px 15px 10px 7px rgba(0, 0, 50, 0.4);
+      }
+      p:nth-of-type(4){
+        box-shadow: 10px 15px 10px  inset rgba(0, 0, 50, 0.4);
+      }
+      p:nth-of-type(5){
+        box-shadow: 10px 15px rgba(0, 0, 50, 0.4);
+      }
+      p:nth-of-type(6){
+        box-shadow: 5px 5px 5px darkred ,
+                    10px 10px 5px yellow,
+                    15px 15px 15px darkblue;
+      }
+    </style>
+</head>
+<body>
+    <h1>세계의 명언들</h1>
+    <p>실수할 자유가 없는 자유란 가치가 없다</p>
+    <p>수정을 용납하지 않는 계획은 나쁜 계획이다.</p>
+    <p>편견은 분별 없는 견해다.</p>
+    <p>음악이 없다면 인생은 잘못된 것이다.</p>
+    <p>그림은 인생과 타협하려는 시도이며, 그렇기 때문에 사람 수 만큼 다양한 해결책이 존재한다.</p>
+    <p>우리는 그 어떤 것에 대해서 1억 분의 1도 모른다.</p>
+</body>
+</html>

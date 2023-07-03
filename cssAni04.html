@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS(Cascading Style Sheets)</title>
+    <style>
+        .ani_box{
+          width: 100px;
+          height: 100px;
+          background: url(images/bg_animation.png)no-repeat center;
+          position: relative;
+        }
+        .ani_box img {
+          position: absolute;
+          left: 10px;
+          top: 9px;
+        }
+        .ani_box img:nth-child(1) {
+          animation: spadeAni1 1s infinite;
+        }
+        .ani_box img:nth-child(2) {
+          animation: spadeAni2 1s infinite;
+        }
+        @keyframes spadeAni1 {
+          from{
+            transform: scale(0.3,0.3);
+            opacity: 0.5;
+          }
+          to {
+            transform: scale(1.2,1.2);
+            opacity: 0;
+          }
+        }
+        @keyframes spadeAni2 {
+          0%{
+            transform: scale(0.5,0.5);
+            opacity: 1;
+          }
+          100%{
+            transform: scale(1.4,1.4);
+            opacity: 0;
+          }
+        }
+    </style>
+</head>
+<body>
+    <div class="ani_box">
+      <img src="images/ani_spade.png" alt="">
+      <img src="images/ani_spade.png" alt="">
+    </div>
+</body>
+</html>

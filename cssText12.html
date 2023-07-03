@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자 관련 스타일</title>
+    <style>
+        div {
+            width: 250px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+        }
+        .wrap>p {
+            word-wrap: break-word;  /*영문-단어를 끊어서 영역 안으로 들어오게 함*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>이름 : 홍길동</p>
+        <p>전화번호 : 010-1234-5687</p>
+        <p>이메일 : hosdfsdfedaidsdfsjflkjsdfiejslksldfjing@naver.com</p>
+    </div>
+    <div class="wrap">
+        <p>이름 : 홍길동</p>
+        <p>전화번호 : 010-1234-5687</p>
+        <p>이메일 : hosdfsdfedaidsdfsjflkjsdfiejslksldfjing@naver.com</p>
+    </div>
+</body>
+</html>
