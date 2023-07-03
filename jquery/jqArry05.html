@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 라이브러리</title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        $(function(){
+           let memo=['화창한 날씨입니다.','월요일입니다.','메서드 배우는 수업']
+           let index; //index를 가져올 변수하나를 생성한다.
+           $('h1').click(function(index) { //클릭이 이벤트형 메서드라 index를 못가져서
+                index=$(this).index();//위에서 만든변수index에 index값을 따로 가져온다.
+                $(this).html(memo[index]);
+           });
+        });
+    </script>
+</head>
+<body>
+    <h1>오늘의 날씨는?</h1>
+    <h1>오늘은 무슨 요일?</h1>
+    <h1>자바스크립트 무슨 수업?</h1>
+</body>
+</html>

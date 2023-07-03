@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체생성</title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        
+    </style>
+    <script>//문제 대리점에서 특별 세일기간 냉장고 3대 한정 청소기 5대 한정 에어컨 2대 
+//각각클릭하면 알림창으로 '서둘러 주세요 이제 남은 수량 N대 입니다.' 다 소진되면 알림창으로 '완판되었습니다.'
+//냉장고 완판 으로 바뀌고 클릭이 안된다.
+        $(function(){
+            let count=[3,5,2];
+            let index;
+            $('h1').on('click',function(){
+                index=$(this).index();
+                alert('구입해주셔서 고맙습니다.')
+                count[index]--;
+                if(count[index]==0) {
+                    alert('완판되었습니다.')
+                    $(this).html('완판되었습니다.');
+                    $(this).css({
+                        color : "#ccc",
+                        cursor : 'deafult'
+                    })
+                    $(this).off();
+                }else{
+                    alert('서둘러 주세요 이제 남은 수량'+count[index]+'대 입니다.')    
+                }
+            })
+        });
+    </script>
+</head>
+<body> 
+    <h1>냉장고 판매중</h1>
+    <h1>청소기 판매중</h1>
+    <h1>에어컨 판매중</h1>
+</body>
+</html>

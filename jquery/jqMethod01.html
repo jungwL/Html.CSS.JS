@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        $(function(){
+            let color=['yellow','orange','cyan','green','beige','gray'];
+            for(let i=0;i<color.length;i++){
+                $('h1').eq(i).css('background',color[i]); //eq 메서드
+            }
+              
+        });
+    </script>
+</head>
+<body>
+    <h1>제이쿼리 선택자</h1>
+    <h1>제이쿼리 메서드</h1>
+    <h1>제이쿼리 이벤트</h1>
+    <h1>제이쿼리 애니메이션(효과)</h1>
+    <h1>제이쿼리실무응용</h1>
+    <h1>제이쿼리 플러그인</h1>
+</body>
+</html>

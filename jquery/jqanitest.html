@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 슬라이더</title>
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <style>
+        div{
+            width: 120px;
+            height: 150px;
+            border: 1px solid black;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        div > img {
+            width: 120px;
+            height: 150px;
+            position: relative;
+        }
+    </style>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>    
+        $(function() {
+            let images=['Koala','Desert','Lighthouse','Jellyfish','Penguins'];
+            let pos=0;
+           $('div>img').click(function(){
+                pos++;
+                if(pos==5){
+                    pos=0;
+                }
+                $(this).animate({
+                    left:-120
+                },'slow',function(){
+                    $(this).css('left',120).attr('src','images/'+images[pos]+'.jpg');
+                    $(this).animate({
+                        left : 0
+                    },'slow');
+                });
+           });
+        });      
+    </script>
+</head>
+<body>
+    <div>
+        <img src="images/Koala.jpg" alt="Koala">
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿠기 플러그인 활용</title>
+    <link rel="stylesheet" href="css/colorbox.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #525252;
+        }
+        .item {
+            margin: 5px;
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 10px;
+            float: left;
+        }
+        .big {
+            width: 210px;
+            height: 430px;
+        }
+        .normal{
+            width: 210px;
+            height: 210px;
+        }
+        .small {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script>     
+        $(function(){
+            $('#manonry_container').masonry({
+                itemSelector : '.item',
+                columnWidth : 110,
+                isAnimated : true
+            });
+            $(document).on('click','.item',function(event,shiftKey){
+                if(event,shiftKey){
+                    $('#manonry_container').masonry('remove',$(this));
+                    $('#manonry_container').masonry('layout');
+                }else {
+                    let item=$(this).clone();
+                    $('#manonry_container').append(item);
+                    $('#manonry_container').masonry('addItems',item);
+                    $('#manonry_container').masonry('layout');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="manonry_container">
+        <img class="item small" src="images/Chrysanthemum.jpg" alt="">
+        <img class="item big" src="images/Desert.jpg">
+        <img class="item normal" src="images/Koala.jpg">
+        <img class="item small" src="images/Penguins.jpg">
+        <img class="item small" src="images/Lighthouse.jpg">
+        <img class="item small" src="images/Hydrangeas.jpg">
+        <img class="item normal" src="images/Tulips.jpg">
+        <img class="item normal" src="images/coffee-blue.jpg">
+        <img class="item small" src="images/girl.jpg">
+        <img class="item small" src="images/car3.jpg">
+        <img class="item small" src="images/umbrella.jpg">
+    </div>
+</body>
+</html>

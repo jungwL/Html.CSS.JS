@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 슬라이더</title>
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <style>
+        .animation_canvas{
+            position: relative;
+            width: 600px;   
+            overflow: hidden;
+        }
+        .slider_panel{
+            position: relative;
+            width: 3000px;
+        }
+        .slider_image{
+            width: 600px;
+            height: 400px;
+            float: left;
+        }
+        .slider_text_panel{
+            position: absolute;
+            top: 200px;
+            left: 50px;
+        }
+        .slider_text{
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            color: #ff0;
+        }
+        .control_panel {
+            position: absolute;
+            top: 380px;
+            left: 270px;
+            height: 13px;
+            overflow: hidden;
+        }
+        .control_button{
+            position: relative;
+            cursor: pointer;
+            background: url(images/point_button.png);
+            float: left;
+            width: 12px;
+            height: 46px;
+        }
+        .control_button:hover {
+            top: -16px;
+        }
+        .control_button.active {
+            top: -31px;
+        }
+        .left_right_control_panel{
+            position: relative;
+        }
+        .left_right_control_panel .left_control{
+            position: absolute;
+            top: 170px;
+            left: 10px;
+            cursor: pointer;
+            width: 21px;
+            height: 70px;
+        }
+        .left_right_control_panel .right_control {
+            position: absolute;
+            top: 170px;
+            right: 10px;
+            cursor: pointer;
+            width: 21px;
+            height: 70px;
+        }
+        .slider_pager{
+            width: 600px;
+            text-align: center;
+        }
+        .slider_pager img {
+            width: 50px;
+            height: 35px;
+            margin: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>    
+        $(function() {
+            let index=0;
+            let sw=false;
+            let auto;
+            moveSlider(index); //시작하자마자  첫 이미지에 파란 버튼
+            //autoSlider();
+            //pager 이미지 슬라이더
+            $('.slider_pager>img').click(function(){
+                let pindex=$(this).index();
+                moveSlider(pindex);
+            });
+            //애니메이션 컨번스 이벤트
+            $('.animation_canvas').hover(function(){
+                clearInterval(auto); //자동실행 함수 제거
+            },function(){
+                //autoSlider();
+            });
+            $('.control_button').click(function(){
+                index=$(this).index();
+                moveSlider(index);
+            });
+            //이미지 슬라이드 구현 함수
+            function moveSlider(index){
+                if(index< 4 && index > 0){
+                    $('.right_control').fadeIn(500);
+                    $('.left_control').fadeIn(500);
+                }
+                if(index==4){
+                    $('.right_control').fadeOut(100);
+                    $('.left_control').fadeIn(500);
+                }
+                if(index==0){
+                    $('.left_control').fadeOut(100);
+                    $('.right_control').fadeIn(500);
+                }
+                $('.slider_panel').animate({
+                    left : -(index*600)
+                },'slow');
+                $('.control_button').removeClass('active')
+                $('.control_button').eq(index).addClass('active');
+                $('.slider_text').hide();
+                $('.slider_text').eq(index).fadeIn('slow');
+            }
+            //좌측 컨트롤 버튼 클릭 이벤트
+            $('.left_control').click(function(){
+                
+                /*if(index==0){
+                    alert('처음이미지입니다.');
+                }else {
+                    index--;
+                    moveSlider(index);
+                }*/
+                index--;
+                moveSlider(index);
+            })
+            //우측 컨트롤 버튼 클릭 이벤트
+            $('.right_control').click(function(){
+                /*if(index==4){
+                    alert('마지막이미지입니다.')
+                }else {
+                    index++;
+                    moveSlider(index);
+                }*/
+                index++;
+                moveSlider(index);
+            })
+            //자동 이미지 슬라이드 구현 함수
+            function autoSlider(){
+                auto=setInterval(function(){
+                    if(index<4 && sw==false){
+                        $('.right_control').trigger('click');
+                    }else{
+                        sw=true;
+                    }
+                    if(index > 0 && sw==true){
+                        $('.left_control').trigger('click');
+                    }else{
+                        sw=false;
+                    }
+                },2000);
+            }
+        });      
+    </script>
+</head>
+<body>
+    <h1>이미지 슬라이더</h1>
+    <!--이미지 슬라이더 영역-->
+    <div class="animation_canvas">
+        <!--슬라이더 패널  : 움직이는 이미지가 전환되는 효과-->
+        <div class="slider_panel">
+            <img src="images/Koala.jpg" alt="Koala" class="slider_image">
+            <img src="images/Desert.jpg" alt="Desert" class="slider_image">
+            <img src="images/Lighthouse.jpg" alt="Lighthouse" class="slider_image">
+            <img src="images/Jellyfish.jpg" alt="Jellyfish" class="slider_image">
+            <img src="images/Penguins.jpg" alt="Penguins" class="slider_image">
+        </div>
+        <!--각 이미지에 대한 설명글을 담고 있는 패널-->
+        <div class="slider_text_panel">
+            <div class="slider_text">
+                <h2>Koala</h2>
+                <p>유대목 코알라과에 속하는 포유류. 현지에서는 네이티브베어(native bear)라고 하며, 아기보기곰·나무타기주머니곰·네이티브베어라고도 한다.</p>
+            </div>
+            <div class="slider_text">
+                <h2>Desert</h2>
+                <p>식물이 자라기 힘든 지역으로, 전체 육지의 1/10을 차지한다.</p>
+            </div>
+            <div class="slider_text">
+                <h2>Lighthouse</h2>
+                <p>대표적인 항로 표지. 항해용 일반 등대와 항공기용 항공 등대가 있다. 야간에 강렬한 등불빛을 발하여 선박 또는 항공기에 육지의 소재, 원근(遠近), 위험한 곳 등을 명시해 준다</p>
+            </div>
+            <div class="slider_text">
+                <h2>Jellyfish</h2>
+                <p>해파리는 대체로 투명하며, 갓 둘레에 많은 촉수를 가지고 있다. 촉수에는 자세포(쏘기세포)가 있어 동물분류학상 자포동물(刺胞動物)문에 속한다. </p>
+            </div>
+            <div class="slider_text">
+                <h2>Penguins</h2>
+                <p>조류 펭귄목 펭귄과 동물을 통틀어 이르는 말. 펭귄과의 바닷새로서 남반구에 6속 18종이 있다.</p>
+            </div>
+        </div>
+        <!--컨트롤 버튼 패널-->
+        <div class="control_panel">
+            <div class="control_button"></div>
+            <div class="control_button"></div>
+            <div class="control_button"></div>
+            <div class="control_button"></div>
+            <div class="control_button"></div>
+        </div>
+        <!--좌우 컨트롤 버튼 패널-->
+        <div class="left_right_control_panel">
+            <img src="images/leftArrow.png" alt="leftArrow" class="left_control">
+            <img src="images/rightArrow.png" alt="rightArrow" class="right_control">
+        </div>
+    </div>
+    <!--이미지 슬라이더 영역 끝-->
+
+    <div class="slider_pager">
+        <img src="images/Koala.jpg" alt="Koala">
+        <img src="images/Desert.jpg" alt="Desert">
+        <img src="images/Lighthouse.jpg" alt="Lighthouse">
+        <img src="images/Jellyfish.jpg" alt="Jellyfish">
+        <img src="images/Penguins.jpg" alt="Penguins">
+    </div>
+</body>
+</html>

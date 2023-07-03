@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        $(function(){
+            //$('.list3').parent().css('border','2px solid red'); //전체
+            //$('.list3').parents().css('border','2px solid red'); //부모 그 위에 부모들까지
+            //$('.list3').closest('div').css('border','2px solid red');//가장가까운 부모중div
+            let index;
+            let color=['yellow','red','green','pink','orange'];
+            $('a').click(function() {
+                index=$(this).parent().index(); //부모의 인덱스를 기준으로 가져온다.
+                $(this).css('background',color[index]);
+
+            });
+            $('#box1>section').children().css({ //section의 자식들
+                color : 'red',
+                background:'yellow',
+                border : "2px solid blue"
+            });
+            //$('.list3').next().css('border','2px solid red'); //바로 아래 형재 제어
+            //$('.list3').nextAll().css('border','2px solid red'); //아래 형재들 제어
+            //$('.list3').prev().css('border','2px solid red'); //바로 위 형재 제어
+            //$('.list3').prevAll().css('border','2px solid red');
+            //$('#box1>h1').nextUntil('p').css('border','2px solid red');// h1에서 부터p태그가 나오기 전 형재까지.
+            //$('.list3').siblings().css('border','2px solid red'); //나를제외한 나의 형제들만 제어
+           // $('#box1').find('.list3').css('border','2px solid red');//id가 box1인영역에서 클래스가 list3제어 
+            $('li:only-child').css('border','2px solid red'); //외동인거
+            
+        });
+    </script>
+</head>
+<body> 
+    <div id="box1">
+        <h1>메서드 형태 선택자</h1>
+        <ul>
+            <li><a href="#">리스트1</a></li>
+            <li><a href="#">리스트2</a></li>
+            <li class="list3"><a href="#">리스트3</a></li>
+            <li><a href="#">리스트4</a></li>
+            <li><a href="#">리스트5</a></li>
+        </ul>
+        <p>나는 단락</p>
+        <section>
+            <h2>나는 섹션 제목</h2>
+            <p>나는 섹션 단락</p>
+        </section>
+        <ul>
+            <li>외동</li>
+        </ul>
+    </div>
+    
+</body>
+</html>

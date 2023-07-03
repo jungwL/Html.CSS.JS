@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax2</title>
+    <link rel="stylesheet" href="css/colorbox.css">
+    <style>
+        
+    </style>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="js/jquery.colorbox.js"></script>
+    <script>     
+        $(function(){
+            $.getJSON('product.json',function(data){
+                $.each(data,function(index,item) {
+                    $('#list').append('<p>' + item.name + ' ☞ ' + item.price + '</p>')
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>편의점</h2>
+    <div id="list">
+
+    </div>
+</body>
+</html>

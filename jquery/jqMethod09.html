@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체생성</title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        $(function(){
+            $('<h2>남극펭귄</h2>').appendTo('#festival'); //태그가 나오면 생성한다는 의미
+            $('<img>').attr({
+                src:'images/Penguins.jpg',
+                width:500,
+                height : 300,
+                alt : '펭귄'
+            }).appendTo('#festival');
+            $('<p></p>').html('펭귄은 남극에 산다.').appendTo('#festival');
+            let contents=['오늘은 수요일입니다.','지금은 문서 객체 생성 수업중','홈페이지 제작은 쭉~~'];
+            for(let i=0;i<contents.length;i++){  //배열로도 사용할 수있다.
+                $('<p></p>').html(contents[i]).appendTo('#festival');
+            }
+            $('<h1>겨울축제</h1>').prependTo('#festival');
+            $('<h2>나는 어디에 추가될까?</h2>').insertAfter('#festival');
+            $('<h2>나는 외톨이</h2>').insertBefore('body'); //body앞에 생성된다.
+        });
+    </script>
+</head>
+<body> 
+    <h1>문서객체생성</h1>
+    <div id="festival">
+
+    </div>  
+</body>
+</html>

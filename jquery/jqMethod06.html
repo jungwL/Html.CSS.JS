@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        #carChoice {
+            width: 300px;
+            text-align: center;
+        }
+        #carChoice > img {
+            width: 60px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $('#carChoice>img').click(function(){
+                $('.myCar').attr('src',$(this).attr('src'));
+            })
+        });
+    </script>
+</head>
+<body> 
+    <img class="myCar" src="images/car1.jpg" alt="">
+    <div id="carChoice">
+        <img src="images/car1.jpg" alt="">
+        <img src="images/car2.jpg" alt="">
+        <img src="images/car3.jpg" alt="">
+        <img src="images/car4.jpg" alt="">
+    </div>
+</body>
+</html>

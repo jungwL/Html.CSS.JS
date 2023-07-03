@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체생성</title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        .reverse{
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+    <script>
+        $(function(){
+            $('h1').on('click',function(){
+                $(this).html(function(index,html){
+                    return html + '★'
+                })
+                
+            })
+            stop2=setTimeout(function() {
+                alert('안뇽')
+            },10000)
+            stop=setInterval(function() {
+                $('h1').last().trigger('click'); //강제로 5초마다 클릭해준다
+            },5000);
+            $('button').click(function() {
+                clearInterval(stop);
+                clearTimeout(stop2);
+            })
+        });
+    </script>
+</head>
+<body> 
+    <button>중지</button>
+    <h1>김철수-</h1>
+    <h1>홍길동-</h1>
+</body>
+</html>

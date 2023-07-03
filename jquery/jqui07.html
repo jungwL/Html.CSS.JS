@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션</title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <script src="js/jquery-ui.min.js"></script>
+    <style>
+        input, label {
+            width: 95%;
+            margin-bottom: 15px;
+            padding: 0.4em;
+        }
+        .schedule_title {
+            font-size: 1.3em;
+            text-align: center;
+            color: rgb(175, 255, 95);
+        }
+    </style>
+    <script>    
+        $(function() {
+            $('#schedule').dialog({
+                autoOpen :false,
+                buttons : { //버튼들을 만들어준다.
+                    저장 : function() {
+                        let eName=$('#event-name').val();
+                        let eDate=$('#event-date').val();
+                        $('<h2></h2>').html(eName +'☞'+eDate).appendTo('#output');
+                        $('#event-name').val('');
+                        $('#event-date').val('');
+                        $('#schedule').dialog('close')
+                    },
+                    초기화 : function() {
+                        $('#event-name').val('');
+                        $('#event-date').val('');
+                    },
+                    취소 : function(){
+                        $('#event-name').val('');
+                        $('#event-date').val('');
+                        $('#schedule').dialog('close')
+                    }
+                },
+                modal:true
+            });
+            $('.schedule_open').click(function(){
+                $('#schedule').dialog('open');
+            });
+            $('#event-date').datepicker({
+                dateFormat:'yy년 mm월 dd일',
+                numberOfMonths : 3
+            }); //달력이 뜬다.
+        });      
+    </script>
+</head>
+<body>
+    <h1>일정관리하기</h1>
+    <input type="text">
+    <button class="schedule_open">일정생성</button>
+    <!--저장되는 장소-->
+    <div id="output">
+
+    </div>
+    <!--일정관리 창(팝업)-->
+    <div id="schedule" title="일정관리">
+        <h2 class="schedule_title">일정 입력하기</h2>
+        <label for="event-name">일정이름</label>
+        <input type="text" id="event-name">
+        <label for="event-date">일정날짜</label>
+        <input type="text" id="event-date">
+    </div>
+</body>
+</html>

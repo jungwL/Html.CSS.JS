@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션</title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        /*.news{
+            display: none;
+        }*/
+
+    </style>
+    <script>     
+        $(function(){
+            $('#btnNews').click(function(){
+                //$('.news').slideDown(1000);
+                $('.news').slideUp(2000 , function() {
+                    alert('다음 뉴스는 9시에....')
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btnNews">뉴스보기</button>
+    <div class="news">
+        <h2>충격적인 호주전 패배</h2>
+        <p>한국은 9일 일본 도쿄돔에서 열린 2023 WBC B조 호주전에서 7-8로 졌다. 투수들이 3점 홈런 두 개 포함 홈런 3개를 맞으면서 무너졌고 끝내 8실점을 극복하지 못했다. 8회말 호주 투수들의 제구난조로 1점차까지 추격했지만 필요했던 안타 하나가 터지지 않았다. 9회말에는 선두타자로서 안타를 치고 출루한 토미 에드먼이 2루 도루에 실패하며 경기에 마침표가 찍혔다.</p>
+    </div>
+    
+    
+</body>
+</html>

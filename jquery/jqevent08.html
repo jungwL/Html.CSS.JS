@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체생성</title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        $(function(){
+            /*$('h1').on('click',function(){ //현재 존재하는 객체만 이벤트 발생시킨다.
+                let length=$('h1').length;
+                let target=$(this).html();
+                $('#wrap').append('<h1>' + length +"-" + target +'</h1>');
+            });*/
+            $('#wrap').on('click','h1',function(){ //아이디가 wrap 인 애들한테 모두 연결하는거다.
+                let length=$('h1').length;
+                let target=$(this).html();
+                $('#wrap').append('<h1>' + length +"-" + target +'</h1>');
+            });
+            
+        });
+    </script>
+</head>
+<body> 
+    <div id="wrap">
+        <h1>메르스</h1>
+    </div>
+</body>
+</html>

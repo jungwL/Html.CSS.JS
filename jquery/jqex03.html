@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 라이브러리</title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script>
+        $(function() {
+            $('h1').hover(function(){ 
+                $(this).css({ //여러개 제어할 경우에는 객체로 묶는다.
+                    color : 'red',
+                    background : 'yellow',
+                    border : '3px solid blue' //값만 ''
+                });
+            },function(){
+                $(this).css("color","black").css('background','#fff').css('border','none');//메소드가 같을경우 객체로 묶는게 좋다.
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>html5 - 홈페이지 뼈대</h1>
+    <h1>css3 - 스타일과 레이아웃</h1>
+    <h1>javascript - 정적인 홈페이지를 동적으로 제어</h1>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체생성</title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        #canvas {
+            border: 3px solid black;
+        }
+    </style>
+    <script>
+        $(function(){
+            let can=document.getElementById('canvas');
+            let context=can.getContext('2d');
+            let position,x,y;
+            let sw=false;
+            $(can).on({
+                
+                mousedown : function(event) { //마우스 누른사람
+                    console.log('캔버스에서 마우스를 눌렀습니다.');
+                    sw=true;
+                    position=$(this).offset();
+                    x=event.pageX-position.left;
+                    y=event.pageY-position.top;
+                    context.beginPath();
+                    context.moveTo(x,y);
+                },
+                mousemove : function(event) { //누른 상태에서 움직이는거
+                    console.log('캔버스 위에서 돌아다니고 있습니다.');
+                    if(sw){
+                        position=$(this).offset();
+                        x=event.pageX-position.left;
+                        y=event.pageY-position.top;
+                        context.lineTo(x,y);
+                        context.stroke();
+                    }
+                    
+                },
+                mouseup : function(event) { //누른 상태에서 땔때
+                    console.log('캔버스 위에서 마우스를 뗐습니다.');
+                    sw=false;
+                }
+            });
+        });
+    </script>
+</head>
+<body> 
+    <canvas id="canvas" width="800" height="500"></canvas>
+</body>
+</html>

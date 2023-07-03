@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션</title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        img{
+            width: 37px;
+            height: 21px;
+            cursor: pointer;
+        }
+    </style>
+    <script>    
+    //이미지를 클릭하면 +37px + 21px 씩 커지게  
+        $(function(){
+            $('img').on('click',function(){
+                /*$(this).css({
+                    width : function(){
+                        return this.width + 37
+                    },
+                    height : function() {
+                        return this.height + 21
+                    }
+                });*/
+                /*let w=parseInt($(this).css('width'));
+                let h=parseInt($(this).css('height'));
+                $(this).animate({
+                    width : w+37,
+                    height : h+42
+                },1000);*/
+                /*$(this).animate({ 
+                    width : '+=37', //원래 값에다가 37씩 넣어준다.
+                    height : '+=21'
+                },1000);*/
+                if(event.shiftKey){
+                    $(this).animate({ 
+                    width : '-=37', //원래 값에다가 37씩 넣어준다.
+                    height : '-=21'
+                    },500);
+                }else {
+                    $(this).animate({ 
+                    width : '+=37', //원래 값에다가 37씩 넣어준다.
+                    height : '+=21'
+                    },500);
+                }
+             });
+        });
+    </script>
+</head>
+<body>
+    
+    <img src="images/car_green.jpg" alt="">
+</body>
+</html>

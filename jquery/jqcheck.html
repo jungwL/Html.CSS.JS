@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션</title>
+    <style>
+        #chking {
+            display: none;
+        }
+        #chking + label span {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: url(images/c.svg) no-repeat;
+            padding-left: 30px;
+        }
+        #chking:checked + label span {
+            background: url(images/c2.svg) no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="chking">
+        <label for="chking">
+            <span>동의함</span>
+        </label>
+    </div>
+</body>
+</html>

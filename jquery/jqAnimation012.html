@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션</title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        img{
+            width: 37px;
+            height: 21px;
+            cursor: pointer;
+            position: relative;
+        }
+    </style>
+    <script>    
+        $(function(){
+            $('img').on('click',function(event){
+                $(this).animate({
+                    left : 1500
+                },5000).animate({
+                    left:0
+                },5000)
+             });
+             $('button').click(function(){ 
+                $('img').stop(true,true);    //중간에 누르면 0으로 오는 애니메이트를 곧바로  5초동안수행한다.
+             });
+        });
+    </script>
+</head>
+<body>
+    <button>중지</button><br>
+    <img src="images/car_green.jpg" alt="">
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        $(function(){
+            //$('#box1').remove(); //완젼히 제거된다.
+            $('#box1').empty(); //안을 비워준다.
+            $('#box2>h1').html(function(index,html){
+                return '☆★' + html + '☆★';
+            });
+        });
+    </script>
+</head>
+<body> 
+    <div id="box1">
+        <h1>나는 곧 제거됨</h1>
+        <h1>제이쿼리 메서드</h1>
+    </div>
+    <div id="box2">
+        <h1>나는 곧 제거됨</h1>
+        <h1>제이쿼리 메서드</h1>
+        <h1>제이쿼리 이벤트</h1>
+    </div>
+    
+</body>
+</html>

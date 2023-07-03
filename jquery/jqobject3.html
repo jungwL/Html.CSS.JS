@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object3</title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script>
+        let area={
+            width : 500,
+            height : 700
+        };
+        let exArea = {
+            width : 1000,
+            height : 1200
+        };
+        $.extend(area,exArea); //객체이름이 같을경우 변경된다.
+        console.log(area);
+        alert(area.width)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

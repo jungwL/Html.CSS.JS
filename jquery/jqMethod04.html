@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        $(function(){
+            let color=['red','green','blue']           
+           $('h1').css({
+                color : function(index){
+                    return color[index];
+                },
+                background : 'yellow',
+                border : "3px solid",
+                borderColor: function(index){
+                    return color[2-index]; //거꾸로
+                }
+           });
+           $('h1').click(function(){
+                /*let memo=$(this).html();//원래 태그 사이의 글자만 가져온다.
+                alert(memo);*/
+                $(this).text("지금 배우는중..")
+           });
+           //$('#box').html('<h1>오늘은 화요일</h1>'); //h1태그도 같이 인식한다.
+           $('#box').text('<h1>오늘은 화요일</h1>') //' '안의 문자 그대로 인식한다.
+        });
+    </script>
+</head>
+<body> 
+    <h1>제이쿼리 이벤트</h1>
+    <h1>제이쿼리실무응용</h1>
+    <h1>제이쿼리 플러그인</h1>
+    <div id="box">
+
+    </div>
+</body>
+</html>

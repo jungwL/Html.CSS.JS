@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorBox</title>
+    <link rel="stylesheet" href="css/colorbox.css">
+    <style>
+        
+    </style>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="js/jquery.colorbox.js"></script>
+    <script>     
+        $(function(){
+            $.ajax({
+                url : 'head.html',
+                success : function(data){ //서버랑 연결 됬을 경우
+                    $('body').prepend(data); //head.html를 body앞에
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="contents">
+        <h2>본문 컨텐츠 제목</h2>
+        <p>여기는 본문 컨텐츠 내용</p>
+    </div>
+</body>
+</html>
